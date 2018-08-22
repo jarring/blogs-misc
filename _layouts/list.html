@@ -1,0 +1,73 @@
+---
+---
+
+<!DOCTYPE html>
+<html language="简体中文">
+    <head>
+        {% include head.html %}
+    </head>
+    <body>
+        <div class="template">
+            <div class="block summary-item">
+                <div class="block-caption">标题</div>
+                <div class="block-body">正文</div>
+            </div>
+            <div class="block content-item">
+                <img class="block-icon" src="http://img95.699pic.com/photo/40031/6236.jpg_wh300.jpg" />
+                <div class="block-content">
+                    <div class="caption">
+                        <a target="_blank" href="{{ '/index.html'    | relative_url }}">首页Index</a>
+                        <span class="info"></span>
+                    </div>
+                    <div class="intr"></div>
+                </div>
+            </div>
+        </div>
+        <div class="doc">
+            {% include header.html %}
+            <div class="main content-summary">
+
+                <div class="content">
+                    <div class="content-nav">
+                        <div class="half searching">
+                        </div>
+                        <div class="half content-pager ">
+                            <a class="nav first" href="javascript:void(0)">首页First</a>
+                            <a class="nav prev" href="javascript:void(0)">前页Prev</a>
+                            <input class="current" type="text" size="5" value="1"/> / <span class="total"></span>
+                            <a class="nav next" href="javascript:void(0)">后页Next</a>
+                            <a class="nav last" href="javascript:void(0)">尾页Last</a>                    
+                        </div>
+                    </div>
+                    <div class="content-items">
+                    </div>
+                </div>
+                <div class="summary">
+                    <!-- <div class="search"><input type="text"></input><div class="search-btn"></div></div> -->
+
+                    <div class="summary-items" >
+                        {% include summary.html %}
+                    </div>
+                </div>
+            </div>
+            <div class="float-button"></div>
+            {% include footer.html %}
+        </div>
+        <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+        <script type="text/javascript" src="{{ '/assets/js/article.js?v=v' | append: site.github.build_revision | relative_url }}"></script>
+        <script type="text/javascript">
+            window.onload = function() {
+                var url = "{{ '/json/articles.json?v=v' | append: site.github.build_revision | relative_url }}";
+                var content = ".content-items";
+                var pager = ".content-pager";
+                var contentTpl = ".content-item";
+                var searching = ".searching";
+                window.GLOBAL_VAR.page.make(url, content, pager, contentTpl, 5, 1, searching);
+
+                var floatButton = ".float-button";
+                var summary = ".summary";
+                window.GLOBAL_VAR.summary.toggle(floatButton, summary);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<div class="block">
+    <div class="block-caption">关于作者About</div>
+    <div class="block-body">
+        <p>管理过超20人的队伍，注重团队交流和人才培养。</p>
+        <p>专注java开发，擅长高并发、分布式、多线程等，多次解决过线上系统故障。</p>
+        <p>擅长使用oracle、mysql、redis等数据库，有丰富数据库设计、调优经验。</p>
+        <p>非常熟悉linux操作系统、docker，在生产环境中安装部署过。</p>
+    </div>
+</div>
+
+<div class="block">
+    <div class="block-caption">文章分类Categories</div>
+    <div class="block-body">
+        <ul>
+            <li><a href="{{ '/list.html'     | relative_url }}">all</a></li>
+{% for c in site.categories %}
+            <li><a href="#" link="{{ '/list.html' | relative_url }}" onclick="window.GLOBAL_VAR.search.searchKey(this)">{{ c.first }}</a> ({{ c.last.size }})</li>
+{% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="block">
+    <div class="block-caption">联系作者Contact</div>
+    <div class="block-body">
+        <p>手机Mobile：保密</p>
+        <p>邮箱Email：保密</p>
+        <p>微信WeChat：j--fang</p>
+    </div>
+</div>

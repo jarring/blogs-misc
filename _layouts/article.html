@@ -1,0 +1,49 @@
+---
+---
+
+<!DOCTYPE html>
+<html language="简体中文">
+    <head>
+        {% include head.html %}
+    </head>
+    <body>
+        <div class="doc">
+            {% include header.html %}
+            <div class="main content-summary">
+ 
+                <div class="content">
+                    
+                    <div class="content-nav">
+                        {% include prev-next.html %}
+                    </div>
+
+                    <div class="article">
+                        <div class="article-header" align="center">
+                            <div class="article-header-title">{{ page.title }}</div>
+                            <div class="article-header-info">
+                                tag: {{ page.tags | join: ', ' | default: 'none' }} | date: {{ page.date }}
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="article-body markdown-body">
+                            {{ page.content }}
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="summary">
+                    <!-- <div class="search"><input type="text"></input><div class="search-btn"></div></div> -->
+                    <div class="summary-items" >
+                        {% include summary.html %}
+                    </div>
+
+                </div>
+
+            </div>
+            {% include footer.html %}
+        </div>
+        <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+        <script type="text/javascript" src="{{ '/assets/js/article.js?v=v' | append: site.github.build_revision | relative_url }}"></script>
+    </body>
+</html>

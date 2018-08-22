@@ -1,0 +1,13 @@
+---
+
+---
+
+[{% for post in site.posts %}{
+ "title": {{ post.title | jsonify }},
+ "url": {{ post.url | relative_url | jsonify }},
+ "icon": {{ post.icon | relative_url | jsonify }},
+ "categories": {{ post.categories | jsonify }},
+ "tags": {{ post.tags | jsonify }},
+ "date": {{ post.date | jsonify }},
+ "summary": {{ post.excerpt | jsonify }}
+}{% if forloop.last == false %},{% endif %}{% endfor %}]

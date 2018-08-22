@@ -1,0 +1,6 @@
+<div class="half">
+    前一篇Prev：{% if page.previous %}<a href="{{ page.previous.url | relative_url }}">{{page.previous.title}}</a>{% else %}没有了None{% endif %}
+</div>
+<div class="half">
+    后一篇Next：{% if page.next     %}<a href="{{ page.next.url     | relative_url }}">{{page.next.title    }}</a>{% else %}没有了None{% endif %}
+</div>

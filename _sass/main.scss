@@ -1,0 +1,341 @@
+* {
+    box-sizing: border-box;
+    border: 0px red solid;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Heiti SC', '微软雅黑';
+    -font-size: 0.95em;
+    line-height: 1.5em;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: blue;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+a.disabled {
+    color: gray;
+    cursor: default;
+}
+
+pre {
+    -white-space: pre-wrap;
+    -word-wrap: break-word;
+    width: 100%;
+    margin: 0px;
+    -overflow: auto;
+}
+
+hr {
+    border-bottom: 0.1em black solid;
+}
+
+.template {
+    display: none;
+}
+
+.doc {
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+    background-image: url(https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/07/ChMkJ1bKyzCITftRAA0hRy8HFZoAALInQMzdqgADSFf714.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    padding-top: 5em;
+    overflow: auto;
+}
+
+.header {
+    width: 100%;
+    height: 5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background-color: skyblue;
+    opacity: 0.75;
+    margin-top: -5em;
+    border-bottom: 0.1em rgba(255, 255, 255, 0.8) solid;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.footer {
+    width: 100%;
+    height: 2em;
+    line-height: 2em;
+    background-color: lightgray;
+    opacity: 0.75;
+    text-align: center;
+    position: fixed;
+    bottom: 0em;
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0em;
+}
+
+.header .mainmenu {
+    text-align: right;
+    height: 100%;
+}
+
+.header .mainmenu a {
+    padding: 0 1em 0 0em;
+    vertical-align: middle;
+}
+
+.content-summary {
+    min-height: 100%;
+    padding-left: 18em;
+}
+
+.content-summary .summary {
+    display: block;
+    width: 18em;
+    padding: 1.5em 2.5em 2.5em 0.75em;
+    float: right;
+}
+
+.content-summary .content {
+    display: block;
+    width: 100%;
+    margin-left: -18em;
+    padding: 1.5em 0.75em 2.5em 2.5em;
+    float: left;
+}
+
+.empty {
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.half {
+    display: inline-block;
+    width: 49%;
+    overflow: hidden;
+    vertical-align: middle;
+    word-break: keep-all;
+}
+
+.third {
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.third-center {
+    display: inline-block;
+    width: 55%;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.third-center h1 {
+    line-height: 1.5em;
+}
+
+.search {
+    width: 100%;
+    height: 2em;
+    display: flex;
+    border: none;
+    margin-bottom: 0.5em;
+}
+
+.search input {
+    height: 100%;
+    padding: 0;
+    flex: 1;
+    border-top-left-radius: 0.2em;
+    border-bottom-left-radius: 0.2em;
+}
+
+.search .search-btn {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    background-color: #ffffff;
+    background-image: url(http://www.jituwang.com/uploads/allimg/121003/219049-12100315394934.jpg);
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    background-position: 0.25em 0.25em;
+    cursor: pointer;
+    border-top-right-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+}
+
+.header .welcome {
+    display: inline-block;
+    height: 100%;
+    font-size: 1.2em;
+    color: green;
+}
+
+.content-summary .summary .block {
+    margin-bottom: 0.5em;
+    opacity: 0.80;
+}
+
+.content-summary .summary .block .block-caption {
+    background-color: #eee;
+    padding: 0.5em;
+    border-top-left-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+}
+
+.content-summary .summary .block .block-body {
+    background-color: #fff;
+    padding: 0.5em;
+    font-size: 0.75em;
+    line-height: 150%;
+    text-indent: 2em;
+    --d-border-bottom-right-radius: 0.2em;
+    --d-border-bottom-left-radius: 0.2em;
+}
+
+.content-summary .summary .block .block-body ul {
+    margin: 0;
+    padding: 0;
+}
+
+.content-summary .summary .block .block-body li {
+    list-style-type: dot;
+    list-style-position: inside;
+}
+
+.tips {
+    width: 100%;
+    height: 3em;
+    text-align: center;
+    line-height: 3em;
+    background-color: #fff;
+    opacity: 0.80;
+}
+
+.content-summary .content .block {
+    margin: 0 0 0.75em 0;
+    border-radius: 0.2em;
+    width: 100%;
+    opacity: 0.80;
+    background-color: #fff;
+    display: flex;
+}
+
+.content-summary .content .content-pager {
+    text-align: right;
+    display: none;
+}
+
+.content-summary .content .content-pager input {
+    border: 1px lightblue solid;
+}
+
+.content-summary .content .block .block-icon {
+    width: 8em;
+    height: 8em;
+    margin: auto;
+    padding: 1em;
+    border-radius: 50%;
+}
+
+.content-summary .content .block .block-content {
+    padding: 1.0em;
+    flex: 1;
+    overflow: hidden;
+}
+
+.content-summary .content .block .block-content .caption {
+    border-bottom: solid gray 0.1em;
+    font-size: 1.5em;
+}
+
+.content-summary .content .block .block-content .caption a {
+    font-size: 1.25em;
+}
+
+.content-summary .content .block .block-content .caption span {
+    font-size: 0.5em;
+    display: inline-block;
+}
+
+.content-summary .content .block .block-content .intr {
+    font-size: 0.8em;
+    text-indent: 2em;
+}
+
+.content-summary .content .content-nav {
+    width: 100%;
+    padding: 0.5em;
+    opacity: 0.80;
+    background-color: #fff;
+    margin-bottom: 0.5em;
+    font-size: 0.75em;
+}
+
+.content-summary .content .article {
+    padding: 1em;
+    width: 100%;
+    opacity: 0.80;
+    background-color: #fff;
+}
+
+.content-summary .content .article .article-header {
+    width: 100%;
+    opacity: 0.80;
+    background-color: #fff;
+    text-align: center;
+}
+
+.content-summary .content .article .article-header .article-header-title {
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0.25em;
+    line-height: 150%;
+}
+
+.content-summary .content .article .article-header .article-header-info {
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    font-size: 0.75em;
+}
+
+.content-summary .content .article p {
+    text-indent: 2em;
+}
+
+.main .index-intro {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+.main .index-intro h1 {
+    font-size: 3.0em;
+}
+
+.float-button {
+    display: none;
+}

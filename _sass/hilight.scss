@@ -1,0 +1,177 @@
+.highlight {
+  margin: 0.5em 0 0.5em 0;
+  padding: 0.25em;
+  overflow: auto;
+  background-color: #3b3b3b;
+}
+
+.highlight table {
+  border: none;
+  border-spacing: 0;
+}
+
+.highlight table tr {
+  border: none;
+}
+
+.highlight table tbody {
+  border: none;
+  background-color: inherit;
+}
+
+.highlight table td {
+  border-right: 0.1em white solid;
+  border-bottom: none;
+}
+
+.highlight table td:first-child {
+  width: auto;
+}
+
+.highlight table pre {
+  margin: 0;
+}
+
+.highlight .w {
+  color: #d0d0d0;
+}
+
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+
+.highlight .c,
+.highlight .cd,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs {
+  color: #888;
+}
+
+.highlight .cp {
+  color: #f4bf75;
+}
+
+.highlight .nt {
+  color: #f4bf75;
+}
+
+.highlight .o,
+.highlight .ow {
+  color: #d0d0d0;
+}
+
+.highlight .p,
+.highlight .pi {
+  color: #d0d0d0;
+}
+
+.highlight .gi {
+  color: #90a959;
+}
+
+.highlight .gd {
+  color: #ac4142;
+}
+
+.highlight .gh {
+  color: #6a9fb5;
+  font-weight: bold;
+}
+
+.highlight .k,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kv {
+  color: #aa759f;
+}
+
+.highlight .kc {
+  color: #d28445;
+}
+
+.highlight .kt {
+  color: #d28445;
+}
+
+.highlight .kd {
+  color: #d28445;
+}
+
+.highlight .s,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .sh,
+.highlight .sx,
+.highlight .s1 {
+  color: #90a959;
+}
+
+.highlight .sr {
+  color: #75b5aa;
+}
+
+.highlight .si {
+  color: #8f5536;
+}
+
+.highlight .se {
+  color: #8f5536;
+}
+
+.highlight .nn {
+  color: #f4bf75;
+}
+
+.highlight .nc {
+  color: #f4bf75;
+}
+
+.highlight .no {
+  color: #f4bf75;
+}
+
+.highlight .na {
+  color: #6a9fb5;
+}
+
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .il,
+.highlight .mo,
+.highlight .mb,
+.highlight .mx {
+  color: #90a959;
+}
+
+.highlight .ss {
+  color: #90a959;
+}
+
+/**
+* Code formatting
+*/
+
+.highlight pre,
+.highlight code {
+  font-size: 1.0em;
+  -border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  -background-color: #eef;
+}
+
+.highlight code {
+  padding: 0.1em 0.25em;
+}
+
+.highlight pre>code {
+  border: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
