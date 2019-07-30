@@ -53,6 +53,7 @@ task runTomcat(dependsOn: war) {
 {% endhighlight %}
 
 或者，在IDE里面直接运行tomcat，这种方法既可调试，也可随意终止tomcat。
+
 {% highlight groovy linenos %}
 Main class: org.apache.catalina.startup.Bootstrap
 VM options: -Dcatalina.base=/Users/developer/User/software/apache-tomcat-9.0.8 -Dcatalina.home=/Users/developer/User/software/apache-tomcat-9.0.8 -Djava.io.tmpdir=/Users/developer/User/software/apache-tomcat-9.0.8/temp -Djava.util.logging.config.file=/Users/developer/User/software/apache-tomcat-9.0.8/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -Dignore.endorsed.dirs= -Duser.language=zh -Duser.country=CN -classpath /Users/developer/User/software/apache-tomcat-9.0.8/bin/bootstrap.jar:/Users/developer/User/software/apache-tomcat-9.0.8/bin/tomcat-juli.jar 
