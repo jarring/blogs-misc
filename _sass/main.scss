@@ -24,6 +24,11 @@ a:active {
     cursor: pointer;
 }
 
+a.nav {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
 a.disabled {
     color: gray;
     cursor: default;
@@ -49,7 +54,7 @@ hr {
     width: 100%;
     height: 100%;
     background-color: skyblue;
-    background-image: url(https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/07/ChMkJ1bKyzCITftRAA0hRy8HFZoAALInQMzdqgADSFf714.jpg);
+    background-image: url(/assets/images/green-tractor-1920x1280.jpg);
     background-size: 100% 100%;
     background-attachment: fixed;
     padding-top: 5em;
