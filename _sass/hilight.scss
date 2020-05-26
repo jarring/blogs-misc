@@ -25,7 +25,7 @@
 }
 
 .highlight table td:first-child {
-  width: auto;
+  width: 3.5em;
 }
 
 .highlight table pre {
@@ -37,8 +37,9 @@
 }
 
 .highlight .err {
-  color: #151515;
-  background-color: #ac4142;
+  //color: #151515;
+  //background-color: #ac4142;
+  color: #f12023;
 }
 
 .highlight .c,
