@@ -90,7 +90,11 @@
                 link.attr("href", obj["url"]);
                 link.text(obj["title"]);
                 //info
-                n.find(".info").html("categories: " + obj["categories"].join(", "));
+                link.attr("title",
+                    "categories: " + obj["categories"].join(", ") 
+                    + "\ntags: " + obj["tags"].join(", ")
+                    + "\ndate: " + obj["date"]
+                );
                 //intr
                 var div = n.find(".intr");
                 div.html(obj["summary"]);
