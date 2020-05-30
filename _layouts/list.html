@@ -53,7 +53,6 @@
             <div class="float-button"></div>
             {% include footer.html %}
         </div>
-        <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
         <script type="text/javascript" src="{{ '/assets/js/article.js?v=v' | append: site.github.build_revision | relative_url }}"></script>
         <script type="text/javascript">
             window.onload = function() {
@@ -63,10 +62,6 @@
                 var contentTpl = ".content-item";
                 var searching = ".searching";
                 window.GLOBAL_VAR.page.make(url, content, pager, contentTpl, 5, 1, searching);
-
-                var floatButton = ".float-button";
-                var summary = ".summary";
-                window.GLOBAL_VAR.summary.toggle(floatButton, summary);
             }
         </script>
     </body>

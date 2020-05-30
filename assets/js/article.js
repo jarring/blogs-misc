@@ -66,119 +66,117 @@
         if (pIdx <= 0 || pTtl > 0 && pIdx > pTtl) {
             return;
         }
-        var c = $(_content);
-        c.html("");
+        var c = document.querySelector(_content);
+        c.innerHTML = "";
         if (_index.length == 0) {
-            $(".content-nav").css("display", "none");
-            c.html("<div class='tips'>无数据 Nothing</div>");
+            document.querySelector(".content-nav").style.display = "none";
+            c.innerHTML = "<div class='tips'>无数据 Nothing</div>";
             return;
         } else {
-            var t = $(_contentTpl);
+            var t = document.querySelector(_contentTpl);
             var from = pageSize * (pIdx - 1);
-            for (var i = from; i < from + 5 && i < _index.length; i ++) {
+            for (var i = from; i < from + 5 && i < _index.length && _data && _data.length > 0; i ++) {
                 var idx = _index[i];
                 var obj = _data[idx];
                 //console.log(i);
-                var n = t.clone(true);
+                var n = t.cloneNode(true);
                 //icon
-                var img = n.find("img");
+                var img = n.querySelector("img");
                 if (obj["icon"]) {
-                    img.attr("src", obj["icon"]);
+                    img.setAttribute("src", obj["icon"]);
                 }
                 //link
-                var link = n.find("a");
-                link.attr("href", obj["url"]);
-                link.text(obj["title"]);
+                var link = n.querySelector("a");
+                link.setAttribute("href", obj["url"]);
+                link.textContent = obj["title"];
                 //info
-                link.attr("title",
+                link.setAttribute("title",
                     "categories: " + obj["categories"].join(", ") 
                     + "\ntags: " + obj["tags"].join(", ")
                     + "\ndate: " + obj["date"]
                 );
                 //intr
-                var div = n.find(".intr");
-                div.html(obj["summary"]);
+                var div = n.querySelector(".intr");
+                div.innerHTML = obj["summary"];
                 
-                n.appendTo(c);
+                c.appendChild(n);
             }
         }
-        var p = $(_pager);
-        var links = [p.find(".first"), p.find(".prev"), p.find(".next"), p.find(".last")],
-            current = p.find(".current");
-            total = p.find(".total");
+        var p = document.querySelector(_pager);
+        var links = [p.querySelector(".first"), p.querySelector(".prev"), p.querySelector(".next"), p.querySelector(".last")],
+            current = p.querySelector(".current");
+            total = p.querySelector(".total");
         var bool = [1 < pTtl && 1 < pIdx ? 1 : 0, 
             1 <= pIdx - 1 ? pIdx - 1 : 0, 
             pIdx + 1 <= pTtl ? pIdx + 1 : 0, 
             0 < pTtl && pIdx < pTtl ? pTtl : 0];
 
         for (var i = 0; i < 4; i ++) {
-            links[i].attr("idx", bool[i]);
+            links[i].setAttribute("idx", bool[i]);
             if (bool[i]) {
-                links[i].removeClass("disabled");
+                links[i].classList.remove("disabled");
             } else {
-                links[i].addClass("disabled");
+                links[i].classList.add("disabled");
             }
         }
-        current.val(pIdx);
-        total.text(pTtl);
+        current.value = pIdx;
+        total.textContent = pTtl;
     };
     
     var showSearching = function() {
         if (keyword != null) {
-            var p = $(_searching);
-            p.html("正在搜索分类Searching category : <mark>" + keyword + "<mark>");
+            var p = document.querySelector(_searching);
+            p.innerHTML = "正在搜索分类Searching category : <mark>" + keyword + "<mark>";
+        }
+    };
+
+    var clickFunc = function(event) {
+        try {
+            var pThis = event.target ?  event.target : event.srcElement;
+            window.GLOBAL_VAR.page.changePager(5, pThis.getAttribute('idx'));
+        } catch (e) {
+            console.log(arguments);
+        }
+    };
+    var changeFunc = function(event) {
+        try {
+            var pThis = event.target ?  event.target : event.srcElement;
+            window.GLOBAL_VAR.page.changePager(5, pThis.value);
+        } catch (e) {
+            console.log(arguments);
         }
     };
 
     var showPager = function() {
-        var p = $(_pager);
+        var p = document.querySelector(_pager);
         if (_index.length > 0) {
-            p.css("display", "inline-block");
-            p.find(".nav").unbind().bind("click", 
-                function() {
-                    window.GLOBAL_VAR.page.changePager(5, $(this).attr('idx'));
-                }
-            );
-            p.find(".current").unbind().bind("change", 
-                function() {
-                    window.GLOBAL_VAR.page.changePager(5, $(this).val());
-                }
-            );
+            p.style.display = "inline-block";
+            [].forEach.call(document.querySelectorAll(".nav"), function(){　
+                this.removeEventListener("click", clickFunc);
+                this.addEventListener("click", clickFunc);　　
+            });
+            [].forEach.call(document.querySelectorAll(".current"), function(){　
+                this.removeEventListener("change", changeFunc);
+                this.addEventListener("change", changeFunc);　　
+            });
         }
     };
     
     _self.make = function(url, content, pager, contentTpl, pageSize, pageIndex, searching) {
-        $.ajax({
-            "url": url,
-            dataType: "json"
-        })
-        .done(function(data, textStatus, jqXHR) {
-            //try {
-                handleJson(data, content, pager, contentTpl, pageSize, pageIndex, searching);
-            //} catch(e) {
-            //    console.log(e);
-            //}
-        })
-        .fail(function(jqXHR, textStatus, errorThrown) {
-            console.log(errorThrown); 
-            try {
-                handleJson([], content, pager, contentTpl, pageSize, pageIndex, searching);
-            } catch(e) {
-                console.log(e);
-            }
-        });
-        /*
         fetch(url, {
               method: "get",
               headers:{
                 "Content-type":"application/x-www-form-urlencoded"
               }
         })
-        .then(function(response){ handleResponse(response); })
-        .then(function(data){ return data ? data.json() : []; })
-        .then(function(json){ handleJson(json, content, pager, contentTpl, pagerTpl, pageSize, pageIndex, searching); })
-        .catch(function(err){console.log(err); handleJson([], content, pager, contentTpl, pagerTpl, pageSize, pageIndex, searching);});
-        */
+        .then(function(data){
+             return data ? data.json() : []; 
+        }).then(function(json){
+            handleJson(json, content, pager, contentTpl, pageSize, pageIndex, searching); 
+        }).catch(function(err){
+            console.log(err); 
+            handleJson([], content, pager, contentTpl, pageSize, pageIndex, searching);
+        });
     };
 };
 
@@ -188,16 +186,5 @@
     
     _self.searchKey = function(link) {
         link.href = link.getAttribute("link") + "?q=" + escape(escape(link.innerHTML));
-    };
-};
-
-
-(window.GLOBAL_VAR = window.GLOBAL_VAR || {}).summary = new function() {
-    var _self = this;
-
-    _self.toggle = function(t, s) {
-        $(t).unbind().bind("click", function(){
-            $(s).toggle(1000);
-        });
     };
 };
